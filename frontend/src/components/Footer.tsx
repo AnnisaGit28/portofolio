@@ -8,9 +8,9 @@ const quickLinks = [
 ];
 
 const socialLinks = [
-    {href: "#", label: "GitHub"},
-    {href: "#", label: "LinkedIn"},
-    {href: "#", label: "Instagram"},
+    {href: "https://github.com/AnnisaGit28", label: "GitHub"},
+    {href: "https://www.linkedin.com/in/nur-annisa-anwar-4201b3373/", label: "LinkedIn"},
+    {href: "https://www.instagram.com/annisasnx/", label: "Instagram"},
 ];
 
 export default function Footer() {
@@ -29,7 +29,7 @@ export default function Footer() {
                                 teknologi baru.
                             </p>
                     </div>
-                    {/* Link linknya */}
+                    {/* link linknya */}
                     <div>
                         <h4 className="text-white font-semibold mb-3">Quick Links</h4>
                         <ul className="space-y-2">
@@ -45,7 +45,7 @@ export default function Footer() {
                             ))}
                         </ul>
                     </div>
-                    {/* SOSIAL MEDIANYA */}
+                    {/* sosial medianya */}
                     <div>
                         <h4 className="text-white font-semibold mb-3">Social Media</h4>
                         <ul className="space-y-2">
@@ -66,7 +66,7 @@ export default function Footer() {
                 </div>
             </div>
 
-            {/* TOMBOL BAR */}
+            {/* tombol bar */}
             <div className="mt-10 pt-6 border-t border-gray-800/50 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <p className="text-gray-500 text-sm">
                     {new Date().getFullYear()} MyPortofolio. All rights reserved.

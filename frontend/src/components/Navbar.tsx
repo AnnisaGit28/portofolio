@@ -11,6 +11,7 @@ const navLinks = [
   { href: "/certificates", label: "Certificates" },
   { href: "/portofolio", label: "Portofolio" },
   { href: "/testimonials", label: "Testimonials" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
