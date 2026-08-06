@@ -138,7 +138,7 @@ const testimonials: Testimonial[] = [
   {
     id: 2,
     name: "Martin",
-    role: "Teman Sekelas / Ketua Kelas",
+    role: "Teman Sekelas",
     company: "XII RPL 1",
     avatar: "🧑",
     stars: 4,
