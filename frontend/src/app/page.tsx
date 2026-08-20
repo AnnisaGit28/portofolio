@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {Laptop,Settings,Palette,} from "lucide-react";
 
 export default function Home() {
   return (
@@ -71,7 +72,7 @@ export default function Home() {
             {/* card 1 */}
             <div className="group p-6 rounded-2xl bg-gray-900/50 border border-gray-800/50 hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
               <div className="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-4 group-hover:bg-indigo-500/20 transition-colors duration-300">
-                <span className="text-2xl">💻</span>
+                <Laptop className="w-6 h-6 text-indigo-400" />{/* <span className="text-2xl">💻</span> */}
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">
                 Frontend Development
@@ -85,7 +86,7 @@ export default function Home() {
             {/* card 2 */}
             <div className="group p-6 rounded-2xl bg-gray-900/50 border border-gray-800/50 hover:border-violet-500/30 transition-all duration-300 hover:-translate-y-1">
               <div className="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center mb-4 group-hover:bg-violet-500/20 transition-colors duration-300">
-                <span className="text-2xl">⚙️</span>
+                <Settings className="w-6 h-6 text-violet-400" />{/* <span className="text-2xl">⚙️</span> */}
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">
                 Backend Development
@@ -99,7 +100,7 @@ export default function Home() {
             {/* card 3 */}
             <div className="group p-6 rounded-2xl bg-gray-900/50 border border-gray-800/50 hover:border-purple-500/30 transition-all duration-300 hover:-translate-y-1">
               <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-4 group-hover:bg-purple-500/20 transition-colors duration-300">
-                <span className="text-2xl">🎨</span>
+                <Palette className="w-6 h-6 text-purple-400" />{/* <span className="text-2xl">🎨</span> */}
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">
                 UI/UX Design

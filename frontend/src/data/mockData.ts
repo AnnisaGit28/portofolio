@@ -1,3 +1,6 @@
+import { Globe, Settings, Wrench } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+
 export interface Project {
   id: number;
   title: string;
@@ -16,7 +19,7 @@ export interface Skill {
 
 export interface SkillGroup {
   title: string;
-  icon: string;
+  icon: LucideIcon;
   skills: Skill[];
 }
 
@@ -27,6 +30,7 @@ export interface Certificate {
   date: string;
   credentialId: string;
   verificationUrl: string;
+  image: string;
 }
 
 export interface Testimonial {
@@ -56,7 +60,7 @@ const projects: Project[] = [
 const skillGroups: SkillGroup[] = [
   {
     title: "Frontend Development",
-    icon: "🌐",
+    icon: Globe,
     skills: [
       { name: "HTML5 / CSS3", level: "Advanced", percentage: 90 },
       { name: "JavaScript (ES6+)", level: "Advanced", percentage: 85 },
@@ -67,7 +71,7 @@ const skillGroups: SkillGroup[] = [
   },
   {
     title: "Backend & Database",
-    icon: "⚙️",
+    icon: Settings,
     skills: [
       { name: "Node.js", level: "Intermediate", percentage: 70 },
       { name: "Express.js", level: "Intermediate", percentage: 75 },
@@ -77,7 +81,7 @@ const skillGroups: SkillGroup[] = [
   },
   {
     title: "Tools & Platforms",
-    icon: "🛠️",
+    icon: Wrench,
     skills: [
       { name: "Git & GitHub", level: "Advanced", percentage: 85 },
       { name: "Figma (UI/UX)", level: "Intermediate", percentage: 70 },
@@ -94,8 +98,9 @@ const certificates: Certificate[] = [
     title: "Introduction to Financial Literacy",
     issuer: "Dicoding Indonesia",
     date: "Januari 2026",
-    credentialId: "DICODING-53XEK7R5VXRN",
+    credentialId: "DICODING-GRX5J6WLYX0M",
     verificationUrl: "https://www.dicoding.com/certificates/53XEK7R5VXRN",
+    image: "/certificates/GRX5J6WLYX0M.png",
   },
   {
     id: 2,
@@ -104,6 +109,7 @@ const certificates: Certificate[] = [
     date: "Januari 2026",
     credentialId: "DICODING-KEXL2K250ZG2",
     verificationUrl: "https://dicoding.com/certificates/KEXL2K250ZG2",
+    image: "/certificates/KEXL2K250ZG2.png",
   },
   {
     id: 3,
@@ -112,6 +118,7 @@ const certificates: Certificate[] = [
     date: "Januari 2026",
     credentialId: "DICODING-JLX158V15Z72",
     verificationUrl: "https://www.dicoding.com/certificates/JLX158V15Z72",
+    image: "/certificates/JLX158V15Z72.png",
   },
   {
     id: 4,
@@ -120,40 +127,71 @@ const certificates: Certificate[] = [
     date: "Januari 2026",
     credentialId: "DICODING-GRX5J6WLYX0M",
     verificationUrl: "https://www.dicoding.com/certificates/GRX5J6WLYX0M",
+    image: "/certificates/GRX5J6WLYX0M.png",
   },
 ];
 
 // 4. Data Testimoni
 const testimonials: Testimonial[] = [
- {
+   {
     id: 1,
-    name: "Farid",
+    name: "Muhammad Saad, S.Pd., M.Pd",
+    role: "Kepala Sekolah",
+    company: "SMK Telkom",
+    avatar: "👨🏻‍🏫",
+    stars: 5,
+    quote:
+      "Annisa menunjukkan semangat belajar yang tinggi, bertanggung jawab dalam menyelesaikan tugas, serta memiliki potensi yang baik untuk terus berkembang di bidang teknologi dan pemrograman.",
+  },
+  {
+    id: 2,
+    name: "Farid Mawardi, S.Pd., M.Pd",
     role: "Kepala Jurusan RPL",
     company: "SMK Telkom",
-    avatar: "👨‍🏫",
+    avatar: "👨🏻‍🏫",
     stars: 5,
     quote:
       "Annisa menunjukkan kemampuan dalam memahami pemrograman dan mampu menyelesaikan project yang diberikan",
   },
   {
-    id: 2,
-    name: "Martin",
-    role: "Teman Sekelas",
-    company: "XII RPL 1",
-    avatar: "🧑",
-    stars: 4,
-    quote:
-      "Belajar kelompok bareng Annisa selalu asik. Dia menjelaskan konsep pemrograman yang susah dengan bahasa yang gampang dimengerti oleh teman-teman.",
-  },
-  {
     id: 3,
-    name: "Alif",
+    name: "Ali Akbar, S.Kom., M.Pd",
     role: "Guru Produktif Web & Mobile",
     company: "SMK Telkom",
-    avatar: "👨‍🏫",
+    avatar: "👨🏻‍🏫",
     stars: 5,
     quote:
-      "Pemahaman Annisa terhadap framework Next.js dan Tailwind CSS v4 di usianya sekarang sangat mengagumkan. Proyek-proyeknya dikerjakan dengan sangat rapi.",
+    "Annisa mampu memahami dasar JavaScript, database MySQL, dan konsep CRUD dengan baik serta menunjukkan kemampuan dalam menerapkan materi yang dipelajari ke dalam project.",
+  },
+  {
+    id: 4,
+    name: "Muh. Alif Anhar, S.Kom",
+    role: "Guru Produktif Web & Mobile",
+    company: "SMK Telkom",
+    avatar: "👨🏻‍🏫",
+    stars: 5,
+    quote:
+    "Annisa memiliki kemampuan yang baik dalam memahami konsep backend, khususnya dalam pengembangan API, pengelolaan database, dan penerapan logika pemrograman, serta menunjukkan ketelitian dan kemauan belajar yang konsisten dalam setiap project",
+  },
+  {
+    id: 5,
+    name: "Andi Hanifah Putri Rani, S.Kom",
+    role: "Guru Produktif Web & Mobile",
+    company: "SMK Telkom",
+    avatar: "👩🏻‍🏫",
+    stars: 4,
+    quote:
+      "Annisa menunjukkan kemampuan yang baik dalam mempelajari Laravel, aktif dalam memahami materi, dan mampu menerapkan konsep yang dipelajari ke dalam project dengan cukup baik",
+  },
+  {
+    id: 6,
+    name: "Indah",
+    role: "Teman Sekelas",
+    company: "XII RPL 1",
+    avatar: "👧🏻",
+    stars: 4,
+    quote:
+      "Annisa selalu berusaha menyelesaikan tugas yang diberikan dengan baik dan cukup mampu dalam bekerja sama.",
   },
 ];
 

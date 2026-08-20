@@ -3,7 +3,10 @@ import Link from "next/link";
 const quickLinks = [
     {href: "/", label: "Home"},
     {href: "/about", label: "About"},
+    {href: "/skills", label: "Skills"},
+    {href: "/certificates", label: "Certificates"},
     {href: "/portofolio", label: "Portofolio"},
+    {href: "/testimonials", label: "Testimonial"},
     {href: "/contact", label: "Contact"},
 ];
 

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { getSkills, SkillGroup } from "@/data/mockData";
+import { Globe, Settings, Wrench } from "lucide-react";
 
 export default function SkillsPage() {
   const [skillGroupsList, setSkillGroupsList] = useState<SkillGroup[]>([]);
@@ -70,7 +71,7 @@ export default function SkillsPage() {
                   className="p-6 sm:p-8 rounded-2xl bg-gray-900/50 border border-gray-800/50"
                 >
                   <div className="flex items-center gap-3 mb-8 pb-4 border-b border-gray-800/50">
-                    <span className="text-3xl">{group.icon}</span>
+                    <group.icon className="w-7 h-7 text-indigo-400" />{/* <span className="text-3xl">{group.icon}</span> */}
                     <h2 className="text-xl font-bold text-white">{group.title}</h2>
                   </div>
 

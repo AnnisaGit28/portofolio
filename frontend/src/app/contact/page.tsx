@@ -1,3 +1,6 @@
+import { Mail, Phone, MapPin } from "lucide-react";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+
 export default function ContactPage() {
   return (
     <>
@@ -112,21 +115,21 @@ export default function ContactPage() {
               {/* info card */}
               {[
                 {
-                  icon: "📧",
+                  icon: Mail,
                   title: "Email",
                   value: "nurannisanur168@gmail.com",
                   description: "Kirim email kapan saja, saya akan membalas secepatnya.",
                 },
                 {
-                  icon: "📱",
+                  icon: Phone,
                   title: "Telepon",
                   value: "+62 812-9240-2886",
                   description: "Tersedia di jam sekolah (10.00 – 17.00 WITA).",
                 },
                 {
-                  icon: "📍",
+                  icon: MapPin,
                   title: "Lokasi",
-                  value: "Indonesia",
+                  value: "Makassar, Indonesia",
                   description: "Bisa bekerja sama secara remote maupun offline.",
                 },
               ].map((item) => (
@@ -136,7 +139,7 @@ export default function ContactPage() {
                 >
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center shrink-0 group-hover:bg-indigo-500/20 transition-colors duration-300">
-                      <span className="text-2xl">{item.icon}</span>
+                      <item.icon className="w-6 h-6 text-indigo-400" />{/* <span className="text-2xl">{item.icon}</span> */}
                     </div>
                     <div>
                       <h3 className="text-white font-semibold">{item.title}</h3>
@@ -158,20 +161,24 @@ export default function ContactPage() {
                 </h3>
                 <div className="flex gap-3">
                   {[
-                    { label: "GitHub", href: "https://github.com/AnnisaGit28" },
-                    { label: "LinkedIn", href: "https://www.linkedin.com/in/nur-annisa-anwar-4201b3373/" },
-                    { label: "Instagram", href: "https://www.instagram.com/annisasnx/" },
-                  ].map((social) => (
+                    { icon: FaGithub, label: "GitHub", href: "https://github.com/AnnisaGit28" },
+                    { icon: FaLinkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/nur-annisa-anwar-4201b3373/" },
+                    { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/annisasnx/" },
+                  ].map((social) => {
+                    const Icon = social.icon;
+                    return (
                     <a
                       key={social.label}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2 rounded-xl bg-gray-800/50 border border-gray-700/50 text-gray-400 text-sm hover:text-white hover:border-gray-600 transition-colors duration-300"
-                    >
-                      {social.label}
+                      aria-label={social.label}
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gray-800/50 border border-gray-700/50 text-gray-400 hover:text-indigo-400 hover:border-indigo-500/50 hover:bg-indigo-500/10 transition-all duration-300">
+                      <Icon className="w-5 h-5" />
+                      <span>{social.label}</span>
                     </a>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             </div>

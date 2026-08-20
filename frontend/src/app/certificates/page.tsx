@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { getCertificates, Certificate } from "@/data/mockData";
 import SkeletonCard from "@/components/SkeletonCard";
+import { ArrowUpRight } from "lucide-react";
 
 export default function CertificatePage() {
   const [certificatesList, setCertificatesList] = useState<Certificate[]>([]);
@@ -52,9 +53,10 @@ export default function CertificatePage() {
                   className="group p-6 rounded-2xl bg-gray-900/50 border border-gray-800/50 hover:border-indigo-500/30 hover:-translate-y-1 transition-all duration-300"
                 >
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-6 group-hover:bg-indigo-500/20 transition-colors duration-300">
+                  <img src={cert.image} alt={cert.title} width={600} height={400} className="w-full h-64 object-cover rounded-xl mb-6"/>
+                  {/* <div className="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-6 group-hover:bg-indigo-500/20 transition-colors duration-300">
                     <span className="text-2xl">🎓</span>
-                  </div>
+                  </div> */}
 
                   <h3 className="text-lg font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors duration-300 leading-snug">
                     {cert.title}
@@ -83,7 +85,7 @@ export default function CertificatePage() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-sm font-semibold text-white hover:text-indigo-400 transition-colors duration-300"
                     >
-                      Lihat Kredensial <span className="text-xs">↗</span>
+                      Lihat Kredensial <ArrowUpRight className="w-4 h-4" />{/* Lihat Kredensial <span className="text-xs">↗</span> */}
                     </a>
                   </div>
                 </div>
