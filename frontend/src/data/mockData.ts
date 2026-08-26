@@ -137,7 +137,7 @@ const testimonials: Testimonial[] = [
     id: 1,
     name: "Muhammad Saad, S.Pd., M.Pd",
     role: "Kepala Sekolah",
-    company: "SMK Telkom",
+    company: "SMK Telkom Makassar",
     avatar: "👨🏻‍🏫",
     stars: 5,
     quote:
