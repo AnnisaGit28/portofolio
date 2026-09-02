@@ -4,10 +4,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const quickLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/portofolio", label: "Portofolio" },
-  { href: "/contact", label: "Contact" },
+    {href: "/", label: "Home"},
+    {href: "/about", label: "About"},
+    {href: "/skills", label: "Skills"},
+    {href: "/certificates", label: "Certificates"},
+    {href: "/portofolio", label: "Portofolio"},
+    {href: "/testimonials", label: "Testimonial"},
+    {href: "/contact", label: "Contact"},
 ];
 
 const socialLinks = [

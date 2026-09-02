@@ -44,7 +44,7 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
             </span>
             <div>
               <h2 className="text-sm font-bold text-white leading-tight">
-                MyPortfolio
+                MyPortofolio
               </h2>
               <span className="text-[10px] text-indigo-400 font-semibold tracking-wider uppercase">
                 Admin Panel

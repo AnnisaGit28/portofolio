@@ -41,7 +41,7 @@ export default function Home() {
               href="/portofolio"
               className="px-8 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 text-white font-semibold hover:from-indigo-400 hover:to-violet-400 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5"
             >
-              Lihat Portfolio
+              Lihat Portofolio
             </Link>
             <Link
               href="/contact"
