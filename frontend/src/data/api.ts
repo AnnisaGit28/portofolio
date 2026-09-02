@@ -1,0 +1,164 @@
+import { Project, SkillGroup, Certificate, Testimonial } from "./mockData";
+import { Globe, Settings, Wrench } from "lucide-react";
+
+const API_BASE = "http://localhost:5000/api";
+
+export interface DashboardStats {
+  total_projects: number;
+  total_skills: number;
+  total_certificates: number;
+  total_testimonials: number;
+  total_messages: number;
+  unread_messages: number;
+}
+ 
+export interface ContactMessage {
+  id: number;
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  is_read: boolean;
+  created_at: string;
+}
+
+// 1. Fetch Project
+export async function fetchProjects(): Promise<Project[]> {
+  const response = await fetch(`${API_BASE}/projects`);
+  const json = await response.json();
+
+  if (!json.success) {
+    throw new Error(json.message || "Gagal mengambil data proyek");
+  }
+
+  return json.data.map((item: any) => ({
+    id: item.id,
+    title: item.title,
+    category: item.category,
+    description: item.description,
+    tech: typeof item.tech === "string" ? JSON.parse(item.tech) : item.tech,
+    demoUrl: item.demo_url,
+    githubUrl: item.github_url,
+  }));
+}
+
+// 2. Fetch Skills
+export async function fetchSkills(): Promise<SkillGroup[]> {
+  const response = await fetch(`${API_BASE}/skills`);
+  const json = await response.json();
+
+  if (!json.success) {
+    throw new Error(json.message || "Gagal mengambil data skill");
+  }
+
+  const groupMap = new Map<string, SkillGroup>();
+
+  json.data.forEach((item: any) => {
+    const key = item.group_title;
+
+    if (!groupMap.has(key)) {
+      groupMap.set(key, {
+        title: item.group_title,
+        icon:
+          item.group_icon === "Globe"
+            ? Globe
+            : item.group_icon === "Settings"
+            ? Settings
+            : Wrench,
+        skills: [],
+      });
+    }
+
+    groupMap.get(key)!.skills.push({
+      id: item.id,
+      name: item.name,
+      level: item.level,
+      percentage: item.percentage,
+    });
+  });
+
+  return Array.from(groupMap.values());
+}
+
+// 3. Fetch Sertifikat
+export async function fetchCertificates(): Promise<Certificate[]> {
+  const response = await fetch(`${API_BASE}/certificates`);
+  const json = await response.json();
+
+  if (!json.success) {
+    throw new Error(json.message || "Gagal mengambil data sertifikat");
+  }
+
+  return json.data.map((item: any) => ({
+    id: item.id,
+    title: item.title,
+    issuer: item.issuer,
+    date: item.date,
+    credentialId: item.credential_id,
+    verificationUrl: item.verification_url,
+    image: "/certificates/GRX5J6WLYX0M.png"
+  }));
+}
+
+// 4. Fetch Testimonial
+export async function fetchTestimonials(): Promise<Testimonial[]> {
+  const response = await fetch(`${API_BASE}/testimonials`);
+  const json = await response.json();
+
+  if (!json.success) {
+    throw new Error(json.message || "Gagal mengambil data testimoni");
+  }
+
+  return json.data.map((item: any) => ({
+    id: item.id,
+    name: item.name,
+    role: item.role,
+    company: item.company,
+    avatar: item.avatar,
+    stars: item.stars,
+    quote: item.quote,
+  }));
+}
+
+// 5. Fetch Pesan Kontak
+export async function sendContactMessage(data: {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}): Promise<{ success: boolean; message: string }> {
+  const response = await fetch(`${API_BASE}/messages`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  const json = await response.json();
+  return json;
+}
+
+// 6. Fetch Semua Pesan Kontak (Untuk Admin)
+export async function fetchMessages(): Promise<ContactMessage[]> {
+  const response = await fetch(`${API_BASE}/messages`);
+  const json = await response.json();
+ 
+  if (!json.success) {
+    throw new Error(json.message || "Gagal mengambil data pesan");
+  }
+ 
+  return json.data;
+}
+ 
+// 7. Fetch Statistik Dashboard (Untuk Admin)
+export async function fetchDashboardStats(): Promise<DashboardStats> {
+  const response = await fetch(`${API_BASE}/dashboard/stats`);
+  const json = await response.json();
+ 
+  if (!json.success) {
+    throw new Error(json.message || "Gagal mengambil data statistik");
+  }
+ 
+  return json.data;
+}

@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { getProjects, Project } from "@/data/mockData";
+import { fetchProjects } from "@/data/api";
+import { Project } from "@/data/mockData";
 import SkeletonCard from "@/components/SkeletonCard";
-import { ArrowUpRight } from "lucide-react";
 
 const categories = ["All", "Web Dev", "Mobile App", "UI/UX"];
 
@@ -13,10 +13,10 @@ export default function PortfolioPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchProjects() {
+    async function fetchsProjects() {
       try {
         setLoading(true);
-        const data = await getProjects();
+        const data = await fetchProjects();
         setProjectsList(data);
       } catch (error) {
         console.error("Failed to fetch projects:", error);
@@ -24,7 +24,7 @@ export default function PortfolioPage() {
         setLoading(false);
       }
     }
-    fetchProjects();
+    fetchsProjects();
   }, []);
 
   const filteredProjects =
@@ -108,13 +108,13 @@ export default function PortfolioPage() {
                         href={project.demoUrl}
                         className="text-sm font-semibold text-white hover:text-indigo-400 transition-colors duration-300 flex items-center gap-1"
                       >
-                        Lihat Demo <ArrowUpRight className="w-4 h-4" />{/* Live Demo <span className="text-xs">↗</span> */}
+                        Live Demo <span className="text-xs">↗</span>
                       </a>
                       <a
                         href={project.githubUrl}
                         className="text-sm font-semibold text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-1"
                       >
-                        Github <ArrowUpRight className="w-4 h-4" />{/* GitHub <span className="text-xs">↗</span> */}
+                        GitHub <span className="text-xs">↗</span>
                       </a>
                     </div>
                   </div>

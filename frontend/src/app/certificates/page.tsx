@@ -1,19 +1,19 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { getCertificates, Certificate } from "@/data/mockData";
+import { fetchCertificates } from "@/data/api";
+import { Certificate } from "@/data/mockData";
 import SkeletonCard from "@/components/SkeletonCard";
-import { ArrowUpRight } from "lucide-react";
 
 export default function CertificatePage() {
   const [certificatesList, setCertificatesList] = useState<Certificate[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchCertificates() {
+    async function fetchsCertificates() {
       try {
         setLoading(true);
-        const data = await getCertificates();
+        const data = await fetchCertificates();
         setCertificatesList(data);
       } catch (error) {
         console.error("Failed to fetch certificates:", error);
@@ -21,7 +21,7 @@ export default function CertificatePage() {
         setLoading(false);
       }
     }
-    fetchCertificates();
+    fetchsCertificates();
   }, []);
 
   return (
@@ -85,7 +85,7 @@ export default function CertificatePage() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-sm font-semibold text-white hover:text-indigo-400 transition-colors duration-300"
                     >
-                      Lihat Kredensial <ArrowUpRight className="w-4 h-4" />{/* Lihat Kredensial <span className="text-xs">↗</span> */}
+                      Lihat Kredensial <span className="text-xs">↗</span> {/* Lihat Kredensial <span className="text-xs">↗</span> */}
                     </a>
                   </div>
                 </div>

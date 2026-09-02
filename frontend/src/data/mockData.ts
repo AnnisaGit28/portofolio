@@ -12,6 +12,7 @@ export interface Project {
 }
 
 export interface Skill {
+  id?: number;
   name: string;
   level: string;
   percentage: number;

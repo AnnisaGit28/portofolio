@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { getSkills, SkillGroup } from "@/data/mockData";
+import { fetchSkills } from "@/data/api";
+import { SkillGroup } from "@/data/mockData";
 import { Globe, Settings, Wrench } from "lucide-react";
 
 export default function SkillsPage() {
@@ -9,10 +10,10 @@ export default function SkillsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchSkills() {
+    async function fetchsSkills() {
       try {
         setLoading(true);
-        const data = await getSkills();
+        const data = await fetchSkills();
         setSkillGroupsList(data);
       } catch (error) {
         console.error("Failed to fetch skills:", error);
@@ -20,8 +21,14 @@ export default function SkillsPage() {
         setLoading(false);
       }
     }
-    fetchSkills();
+    fetchsSkills();
   }, []);
+
+  const iconMap = {
+  Globe,
+  Settings,
+  Wrench,
+  };
 
   return (
     <section className="py-16 sm:py-20 min-h-screen">
@@ -70,9 +77,9 @@ export default function SkillsPage() {
                   key={group.title}
                   className="p-6 sm:p-8 rounded-2xl bg-gray-900/50 border border-gray-800/50"
                 >
-                  <div className="flex items-center gap-3 mb-8 pb-4 border-b border-gray-800/50">
-                    <group.icon className="w-7 h-7 text-indigo-400" />{/* <span className="text-3xl">{group.icon}</span> */}
-                    <h2 className="text-xl font-bold text-white">{group.title}</h2>
+                  <div className="flex items-center gap-3 mb-8 pb-4 border-b border-gray-800/50"> 
+                  <group.icon className="w-7 h-7 text-indigo-400" />
+                  <h2 className="text-xl font-bold text-white">{group.title}</h2>
                   </div>
 
                   <div className="space-y-6">
@@ -103,4 +110,4 @@ export default function SkillsPage() {
       </div>
     </section>
   );
-}
+};
